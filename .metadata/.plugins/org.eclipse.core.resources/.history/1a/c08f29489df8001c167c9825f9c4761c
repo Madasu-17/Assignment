@@ -1,0 +1,18 @@
+package com.zensar.service;
+
+import java.util.List;
+
+import com.zensar.entity.Employee;
+
+public interface EmployeeService {
+
+	public Employee getEmployee(int employeeId);
+
+	public List<Employee> getEmployees();
+
+	public Employee insertEmployee(Employee employee);
+
+	public void updateEmployee(int employeeId);
+
+	public Employee deleteEmployee(int employeeId, Employee employee);
+}

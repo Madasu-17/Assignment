@@ -1,0 +1,17 @@
+package com.zensar.exceptions;
+
+public class NoSuchCouponExistsExceotion extends RuntimeException {
+	
+	private String message;
+
+	public NoSuchCouponExistsExceotion() {
+		super();
+	}
+
+	public NoSuchCouponExistsExceotion(String message) {
+		super();
+		this.message = message;
+	}
+	
+
+}

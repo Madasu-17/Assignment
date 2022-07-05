@@ -1,0 +1,10 @@
+package com.zensar.repository;
+
+import java.util.List;
+
+import com.zensar.entity.Customer;
+
+public interface CustomerRepository {
+	
+	
+}

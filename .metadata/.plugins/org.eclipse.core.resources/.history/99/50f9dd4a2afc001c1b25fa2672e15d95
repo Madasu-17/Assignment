@@ -1,0 +1,40 @@
+package com.zensar.service;
+
+import java.util.List;
+
+import com.zensar.CouponsServiceApplication;
+import com.zensar.entity.Coupons;
+
+public class CouponsServiceImpl implements CouponsService {
+
+	@Override
+	public Coupons getCoupon(int couponId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Coupons> getAllCoupons() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertCoupon(Coupons coupons) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCoupon(int couponId, Coupons coupons) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCoupon(int couponId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

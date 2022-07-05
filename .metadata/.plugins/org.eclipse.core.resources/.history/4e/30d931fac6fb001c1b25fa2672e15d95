@@ -1,0 +1,5 @@
+package com.zesar.service;
+
+public class FoodItemServiceImpl {
+
+}

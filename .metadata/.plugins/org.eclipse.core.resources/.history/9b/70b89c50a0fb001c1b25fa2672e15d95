@@ -1,0 +1,48 @@
+package com.zensar.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.zensar.entity.Customer;
+
+public class CustomerServiceImpl implements CustomerService {
+	
+	private List<Customer> customers = new ArrayList<Customer>();
+	
+	 public CustomerServiceImpl() {
+		customers.add(new Customer(101, "Rahul", "SaradaColony, 522002"));
+		customers.add(new Customer(102, "Paul", "Ala hospital, 522002"));
+		customers.add(new Customer(103, "Madasu", "VidyaNagar, 522002"));
+	}
+
+	@Override
+	public Customer getCustomer(int customerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insertCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCustomer(int customerId, Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteCustomer(int customerId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

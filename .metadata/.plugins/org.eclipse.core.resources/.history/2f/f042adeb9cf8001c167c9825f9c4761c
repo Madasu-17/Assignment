@@ -1,0 +1,39 @@
+package com.zensar.service;
+
+import java.util.List;
+
+import com.zensar.entity.Employee;
+
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Override
+	public Employee getEmployee(int employeeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee insertEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateEmployee(int employeeId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Employee deleteEmployee(int employeeId, Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,35 @@
+package com.zensar;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
+
+@SpringBootApplication
+@EnableEurekaClient
+@RestController
+public class CouponServiceApplication {
+	
+	@Value("${test.myLanguage}")
+	private String language;
+
+	public static void main(String[] args) {
+		SpringApplication.run(CouponServiceApplication.class, args);
+		System.out.println("Running...!!!!");
+	}
+	
+	//http://localhost:8182/
+	@GetMapping("/")
+	public String testConfig() {
+		return "Your language is " + language;
+	}
+	@GetMapping("/1")
+	public String testConfig1() {
+		return "This is a "+language;
+	}
+
+}

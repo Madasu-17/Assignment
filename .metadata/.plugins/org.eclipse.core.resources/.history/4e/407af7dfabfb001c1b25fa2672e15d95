@@ -1,0 +1,62 @@
+package com.zensar.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.zensar.entity.Customer;
+
+public class CustomerRepositoryImpl implements CustomerRepository{
+	
+	private List<Customer> customers = new ArrayList<Customer>();
+	
+	
+
+	public CustomerRepositoryImpl() {
+		customers.add(new Customer(101, "Rahul", "SaradaColony, 522002"));
+		customers.add(new Customer(102, "Paul", "Ala hospital, 522002"));
+		customers.add(new Customer(103, "Madasu", "VidyaNagar, 522002"));
+	}
+
+	@Override
+	public Customer getCustomer(int customerId) {
+		for (Customer customer : customers) {
+			if (customer.getCustomerId() == customerId) {
+				return customer;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		
+		return customers;
+	}
+
+	@Override
+	public void insertCustomer(Customer customer) {
+		customers.add(customer);
+		
+	}
+
+	@Override
+	public void updateCustomer(int customerId, Customer customer) {
+		Customer customer1 = getCustomer(customerId);
+		customer1.setCustomerId(customer.getCustomerId());
+		customer1.setCustomerName(customer.getCustomerName());
+		customer1.setCustomerAddress(customer.getCustomerAddress());
+		
+	}
+
+	@Override
+	public void deleteCustomer(int customerId) {
+		for (int i = 0; i < customers.size(); i++) {
+			Customer customer = customers.get(i);
+			if (customer.getCustomerId() == customerId) {
+				customers.remove(customer);
+			}
+		}
+		
+	}
+
+}

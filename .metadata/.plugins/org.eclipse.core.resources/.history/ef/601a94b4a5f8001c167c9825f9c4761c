@@ -1,0 +1,28 @@
+package com.zensar.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.zensar.entity.Employee;
+import com.zensar.service.EmployeeService;
+
+
+@RequestMapping("/employe-api")
+public class EmployeeController {
+	@Autowired
+	private EmployeeService employeeService;
+
+	@GetMapping("/employee/{emplyeeId}")
+	public Employee getEmployee(@PathVariable("employeeId") int employeeId) {
+		return employeeService.getEmployee(employeeId);
+	}
+
+	@GetMapping("/employees")
+	public List<Employee> getEmployees() {
+		return employeeService.getEmployees();
+	}
+
+}

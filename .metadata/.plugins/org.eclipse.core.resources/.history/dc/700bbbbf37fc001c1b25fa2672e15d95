@@ -1,0 +1,17 @@
+package com.zensar.security;
+
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+public class MySecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+		auth.inMemoryAuthentication()
+		.withUser("Rahul")
+		.password("Rahul@12")
+		.roles("USER");
+	}
+
+}

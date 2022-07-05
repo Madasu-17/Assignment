@@ -1,0 +1,50 @@
+package com.zensar.entity;
+
+public class FoodItems {
+	
+	private int itemId;
+	private String foodItemName;
+	private String foodItemType;
+	private int foodItemCost;
+	public FoodItems() {
+		super();
+	}
+	public FoodItems(int itemId, String foodItemName, String foodItemType, int foodItemCost) {
+		super();
+		this.itemId = itemId;
+		this.foodItemName = foodItemName;
+		this.foodItemType = foodItemType;
+		this.foodItemCost = foodItemCost;
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	public String getFoodItemName() {
+		return foodItemName;
+	}
+	public void setFoodItemName(String foodItemName) {
+		this.foodItemName = foodItemName;
+	}
+	public String getFoodItemType() {
+		return foodItemType;
+	}
+	public void setFoodItemType(String foodItemType) {
+		this.foodItemType = foodItemType;
+	}
+	public int getFoodItemCost() {
+		return foodItemCost;
+	}
+	public void setFoodItemCost(int foodItemCost) {
+		this.foodItemCost = foodItemCost;
+	}
+	@Override
+	public String toString() {
+		return "FoodItems [itemId=" + itemId + ", foodItemName=" + foodItemName + ", foodItemType=" + foodItemType
+				+ ", foodItemCost=" + foodItemCost + "]";
+	}
+	
+
+}

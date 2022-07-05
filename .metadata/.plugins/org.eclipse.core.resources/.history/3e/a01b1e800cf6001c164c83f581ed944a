@@ -1,0 +1,8 @@
+package com.zensar.restclient;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient("/COUPON-SERVICE")
+public interface CouponRestClient {
+
+}

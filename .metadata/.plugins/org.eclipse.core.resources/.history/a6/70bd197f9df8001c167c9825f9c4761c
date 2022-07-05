@@ -1,0 +1,44 @@
+package com.zensar.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.zensar.entity.Employee;
+import com.zensar.repository.EmployeeRepository;
+
+public class EmployeeServiceImpl implements EmployeeService {
+	@Autowired
+	private EmployeeRepository employeeRepository;
+
+	@Override
+	public Employee getEmployee(int employeeId) {
+		return employeeRepository.findById(employeeId).get();
+		
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee insertEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateEmployee(int employeeId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Employee deleteEmployee(int employeeId, Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.zensar;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+@Component
+public class MyConfig {
+	@Value("${test.property}")
+	private String testProperty;
+
+	public String getTestProperty() {
+		return testProperty;
+	}
+
+	public void setTestProperty(String testProperty) {
+		this.testProperty = testProperty;
+	}
+	
+	
+}

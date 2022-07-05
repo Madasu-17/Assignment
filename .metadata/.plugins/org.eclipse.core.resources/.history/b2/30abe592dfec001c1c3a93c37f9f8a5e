@@ -1,0 +1,64 @@
+package com.zensar.controller;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zensar.controller.service.StudentService;
+import com.zensar.entity.Student;
+
+@RestController
+@RequestMapping(value = "student-api", produces = { MediaType.APPLICATION_JSON_VALUE,
+		MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE,
+				MediaType.APPLICATION_XML_VALUE })
+public class StudentController {
+	@Autowired
+	private StudentService studentService;
+
+	// @RequestMapping("/student/{studentId}")
+	@GetMapping(value = "/students/{studentId}")
+	public Student getStudent(@PathVariable("studentId") int studentId) {
+		return studentService.getStudent(studentId);
+	}
+
+	// http://localhost:8181/students - Read
+	// @RequestMapping(value={"/students","/listOfStudents"},method=RequestMethod.GET)
+	@GetMapping("/students")
+	public List<Student> getAllStudents() {
+		return studentService.getAllStudents();
+	}
+
+	// @RequestMapping(value="/students",method = RequestMethod.POST)
+	@PostMapping(value ="/students")
+	public void insertStudents(@RequestBody Student student) {
+		studentService.insertStudent(student);
+	}
+
+	// http:localhost:818/students - Delete
+	// @RequestMapping(value="/students/{studentId}",method=RequestMethod.DELETE)
+	@DeleteMapping("/students/{studentId}")
+	public void deleteStudent(@PathVariable("studentId") int studentId, @RequestBody Student student) {
+
+		studentService.deleteStudent(studentId);
+	}
+
+	// http://localhost:8181/students - Update
+	// @RequestMapping(value="/students/{studentId}",method=RequestMethod.PUT)
+	@PutMapping("/students/{studentId}")
+	public void updateStudent(@PathVariable("studentName") int studentId, @RequestBody Student student) {
+		studentService.updateStudent(studentId, student);
+
+	}
+
+}

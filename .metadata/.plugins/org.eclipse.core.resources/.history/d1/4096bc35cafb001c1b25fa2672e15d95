@@ -1,0 +1,43 @@
+package com.zesar.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.zensar.entity.FoodItems;
+import com.zensar.repository.FoodItemRepository;
+
+public class FoodItemServiceImpl implements FoodItemService {
+	@Autowired
+	private FoodItemRepository foodItemRepository;
+
+	@Override
+	public FoodItems getFoodItems(int itemId) {
+		return  foodItemRepository.findById(itemId).get();
+	}
+
+	@Override
+	public List<FoodItems> getAllFoodItems() {
+		
+		return foodItemRepository.findAll();
+	}
+
+	@Override
+	public void insertFoodItems(FoodItems foodItems) {
+		foodItemRepository.save(foodItems);
+		
+	}
+
+	@Override
+	public void updateFoodItems(int itemId, FoodItems foodItems) {
+		foodItemRepository.save(foodItems);
+		
+	}
+
+	@Override
+	public void deleteFoodItems(int itemId) {
+		foodItemRepository.deleteById(itemId);
+		
+	}
+
+}

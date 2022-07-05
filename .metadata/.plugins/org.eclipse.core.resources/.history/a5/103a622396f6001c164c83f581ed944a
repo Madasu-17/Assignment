@@ -1,0 +1,16 @@
+package com.zensar.exceptions;
+
+public class CouponAlreadyExistsException extends RuntimeException {
+	private String message;
+
+	public CouponAlreadyExistsException() {
+		super();
+	}
+
+	public CouponAlreadyExistsException(String message) {
+		super();
+		this.message = message;
+	}
+	
+	
+}

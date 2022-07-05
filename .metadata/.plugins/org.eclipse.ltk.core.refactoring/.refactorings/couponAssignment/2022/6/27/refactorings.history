@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.zensar.exceptions.NoSuchCouponExistsExceotion.java&apos; to &apos;NoSuchCouponExistsException.java&apos;&#x0D;&#x0A;- Original project: &apos;couponAssignment&apos;&#x0D;&#x0A;- Original element: &apos;com.zensar.exceptions.NoSuchCouponExistsExceotion.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.zensar.exceptions.NoSuchCouponExistsException.java&apos;" description="Rename compilation unit &apos;NoSuchCouponExistsExceotion.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.zensar.exceptions{NoSuchCouponExistsExceotion.java" name="NoSuchCouponExistsException.java" references="false" stamp="1656388716078" version="1.0"/>
+</session>

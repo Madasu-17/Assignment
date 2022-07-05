@@ -1,0 +1,11 @@
+package com.zensar.entity;
+
+public class FoodItems {
+	
+	private int itemId;
+	private String foodItemName;
+	private String foodItemType;
+	private int foodItemCost;
+	
+
+}

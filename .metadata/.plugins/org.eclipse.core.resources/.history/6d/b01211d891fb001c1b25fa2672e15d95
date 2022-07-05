@@ -1,0 +1,76 @@
+package com.zensar.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zensar.entity.Customer;
+
+@RestController
+public class CustomerController {
+
+	private List<Customer> customers = new ArrayList<Customer>();
+
+	public CustomerController() {
+		customers.add(new Customer(101, "Rahul", "SaradaColony, 522002"));
+		customers.add(new Customer(102, "Paul", "Ala hospital, 522002"));
+		customers.add(new Customer(103, "Madasu", "VidyaNagar, 522002"));
+	}
+
+	// http://localhost:7070/cusomer/101 --- to get the customer data with Id
+	@GetMapping ("/customer/{customerId}")
+	public Customer getCustomer(@PathVariable("customerId") int customerId) {
+		for (Customer customer : customers) {
+			if (customer.getCustomerId() == customerId) {
+				return customer;
+			}
+		}
+
+		return null;
+	}
+
+	// http://localhost:7070/customers -- to get all the data of the Customers
+	@GetMapping (value = { "/customers", "/listOfCustomers" })
+	public List<Customer> getAllCustomers() {
+		return customers;
+	}
+
+	// http://localhost:7070/customer -- to add the new customer data
+	@PostMapping("/customer")
+	public void insertCustomer(@RequestBody Customer customer) {
+		customers.add(customer);
+
+	}
+	@PutMapping (value="/customer/{customerId}")
+	public void updateCustomer(@PathVariable("customerId") int customerId, @RequestBody Customer customer) {
+			Customer customer1=getCustomer(customerId);
+			customer1.setCustomerId(customer.getCustomerId());
+			customer1.setCustomerName(customer.getCustomerName());
+			customer1.setCustomerAddress(customer.getCustomerAddress());
+					
+	}
+	
+	
+	//http://localhost:7070/customer  -- to delete the customer.
+	@DeleteMapping (value="/customer/{customerId}")
+	public void deleteCustomer(@PathVariable ("customerId") int customerId) {
+		for (int i=0; i<customers.size();i++) {
+			Customer customer = customers.get(i);
+			if (customer.getCustomerId() == customerId) {
+				customers.remove(customer);
+			}
+		}
+	}
+
+}

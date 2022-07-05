@@ -1,0 +1,75 @@
+package com.zensar.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zensar.entity.Student;
+
+@RestController
+@RequestMapping("/student-api")
+public class StudentController {
+	private List<Student> students=new ArrayList<Student>();
+		public StudentController() {
+		students.add(new Student(101, "Rahul", 23));
+		students.add(new Student(102, "Paul", 20));
+		students.add(new Student(103, "Madasu", 22));
+		students.add(new Student(104, "Rohit", 24));
+	}
+	//@RequestMapping("/student/{studentId}")
+	 @GetMapping("/students/{studentId}")
+	public Student getStudent(@PathVariable("studentId") int studentId) {
+		for(Student student:students) {
+			if(student.getStudentId()==studentId) {
+				return student;
+			}
+		}
+		return null;
+	}
+	//http://localhost:8181/students - Read
+	//@RequestMapping(value={"/students","/listOfStudents"},method=RequestMethod.GET)
+	@GetMapping("/students")
+	public List<Student> getAllStudents(){
+		return students;
+	}
+	//@RequestMapping(value="/students",method = RequestMethod.POST)
+	@PostMapping("/students")
+	public void insertStudents(@RequestBody Student student) {
+		students.add(student);
+		
+	}
+	//http:''localhost:818`/students - Delete
+	//@RequestMapping(value="/students/{studentId}",method=RequestMethod.DELETE)
+	@DeleteMapping("/students/{studentId}")
+	public void deleteStudent(@PathVariable("studentId")int studentId) {
+		for(int i=0;i<students.size();i++) {
+		Student student=students.get(i);
+		if(student.getStudentId()==studentId) {
+			students.remove(student);
+		}
+		}
+	}
+	//http://localhost:8181/students  - Update 
+	//@RequestMapping(value="/students/{studentId}",method=RequestMethod.PUT)
+	@PutMapping("/students/{studentId}")
+	public void updateStudent(@PathVariable("studentId")int studentId, @RequestBody Student student) {
+		 Student student1=getStudent(studentId);
+		 student1.setStudentId(student.getStudentId());
+		 student1.setStudentName(student.getStudentName());
+		 student1.setStudentAge(student.getStudentAge());
+		 students.add(student1);
+	}
+	
+	}
+	

@@ -1,0 +1,16 @@
+package com.zensar.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerController {
+	@RequestMapping("/")
+	public String sayHello() {
+		return "<h1>Welcome to my New application</h1>";
+	}
+	@RequestMapping("/new")
+	public String sayHi() {
+		return "<h2>New Application Started</h2>";
+	}
+}

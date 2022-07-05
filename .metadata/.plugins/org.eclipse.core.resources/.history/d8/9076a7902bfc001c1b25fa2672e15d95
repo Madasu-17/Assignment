@@ -1,0 +1,13 @@
+package com.zensar.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zensar.service.CouponsService;
+@RestController
+@RequestMapping("/coupons-api")
+public class CouponsController {
+	
+	private CouponsService couponsService;
+
+}

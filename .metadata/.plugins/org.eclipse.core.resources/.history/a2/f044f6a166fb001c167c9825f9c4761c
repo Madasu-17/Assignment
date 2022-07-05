@@ -1,0 +1,28 @@
+package com.zensar.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.zensar.entity.Customer;
+
+@RestController
+public class CustomerController {
+	
+	private List<Customer> customers;
+	
+	
+	@RequestMapping("/customer")
+	public Customer getCustomer() {
+		return new Customer(101, "Rahul", "SaradaColony, 522002");
+	}
+	
+	public List<Customer>getAllCustomers(){
+		customers=new ArrayList<Customer>();
+		customers.add(new Customer(101, "Rahul", "SaradaColony, 522002"));
+		customers.add(new Customer(102, "Paul", "Ala hospital, 522002"));
+		customers.add(new Customer(103, "Madasu", "VidyaNagar, 522002"));
+	}
+}

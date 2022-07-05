@@ -1,0 +1,5 @@
+package com.zensar.restclient;
+
+public interface CouponRestClient {
+
+}

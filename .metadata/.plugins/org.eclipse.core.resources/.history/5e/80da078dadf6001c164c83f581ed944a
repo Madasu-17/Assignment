@@ -1,0 +1,21 @@
+package com.zensar.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller("/thymeleaf")
+public class HelloController {
+	@GetMapping( "/" )
+	public String hello(@RequestParam(value = "name", defaultValue = "First program on Thymeleaf", required = true) String name,
+			Model model) {
+		model.addAttribute("name",name);
+		return "hello";
+		}
+	@GetMapping("/hi")
+	public String hi(@RequestParam(value="name", defaultValue= "Second Try for the Thymeleaf", required= true) String name, Model model) {
+		model.addAttribute("name", name);
+		return "hi";
+	}
+}
